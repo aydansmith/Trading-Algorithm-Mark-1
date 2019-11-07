@@ -43,8 +43,8 @@ def rebalance(context, data):
     if data.can_trade(context.security):
         if average_five_day > (0.1 * average_twenty_day):
             algo.order_target_percent(context.security, 1)
-            #log.info("Buying %s" % (context.security.symbol))
+            log.info("Buying %s" % (context.security.symbol))
     
         elif average_five_day < (0.1 * average_twenty_day):
             algo.order_target_percent(context.security, 0)
-            #log.info("Selling %s" % (context.security.symbol))
+            log.info("Selling %s" % (context.security.symbol))
