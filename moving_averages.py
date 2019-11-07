@@ -41,10 +41,10 @@ def rebalance(context, data):
     average_twenty_day = past_price_data_two.mean()
     
     if data.can_trade(context.security):
-        if average_five_day > (1.1 * average_twenty_day):
+        if average_five_day > average_twenty_day:
             algo.order_target_percent(context.security, 1)
             log.info("Buying %s" % (context.security.symbol))
     
-        elif average_five_day < (1.1 * average_twenty_day):
+        elif average_five_day < average_twenty_day:
             algo.order_target_percent(context.security, 0)
             log.info("Selling %s" % (context.security.symbol))
